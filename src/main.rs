@@ -125,7 +125,7 @@ by Bl4ckarch
     let start = Instant::now();
     let display_stop_flag = Arc::clone(&stop_flag);
     let display_shared_data = Arc::clone(&shared_data);
-    let display_handle = thread::spawn(move || {
+    let _display_handle = thread::spawn(move || {
         display_speed(display_shared_data, start, display_stop_flag);
     });
 
