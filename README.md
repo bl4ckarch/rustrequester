@@ -14,10 +14,10 @@ This is a Rust-based HTTP requester tool. It allows sending HTTP requests in par
    git clone https://github.com/bl4ckarch/rustrequester.git
    cd rustrequester.git
 
-2. **Build executable
+2. **Build executable**
    ```bash
    cargo build
-   cargo run -- -i path_to_input_file -t number_of_threads
+   cargo run -- -i path_to_input_file -t number_of_threads -r number_of_requests
 
 - The binary is located in /target/debug/ directory
 
