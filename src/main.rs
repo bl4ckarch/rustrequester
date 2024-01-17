@@ -109,7 +109,7 @@ by Bl4ckarch
     let mut contents = String::new();
     file.read_to_string(&mut contents).expect("Unable to read file");
 
-    let url = "http://int-proxmoxmonitor.eisge.com/ws/hyperviseur/getVm?node=eh012";
+    let url = "http://example.com";
     let method = Method::GET; 
     let headers = HeaderMap::new();
     let body = ""; 
