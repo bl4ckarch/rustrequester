@@ -181,7 +181,7 @@ https://github.com/bl4ckarch.com
 
     display_handle.join().unwrap(); 
 
-    let total_requests = shared_data.request_count.load(Ordering::SeqCst);
-    let response_codes = shared_data.response_codes.lock().unwrap();
+    //let total_requests = shared_data.request_count.load(Ordering::SeqCst);
+    //let response_codes = shared_data.response_codes.lock().unwrap();
     
 }

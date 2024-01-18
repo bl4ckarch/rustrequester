@@ -17,7 +17,7 @@ This is a Rust-based HTTP requester tool. It allows sending HTTP requests in par
 2. **Build executable**
    ```bash
    cargo build
-   cargo run -- -i path_to_input_file -t number_of_threads -r number_of_requests
+   cargo run -- -i path_to_input_file -t number_of_threads -r number_of_requests -u your_website_url
 
 - The binary is located in /target/debug/ directory
 
