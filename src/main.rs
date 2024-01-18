@@ -59,7 +59,7 @@ fn display_speed(shared_data: Arc<SharedData>, start: Instant, stop_flag: Arc<At
 
         if elapsed_secs > 0.0 {
             let requests_per_second = total_requests as f64 / elapsed_secs;
-            println!("Requests: {}, Time: {:.2} seconds, Speed: {:.2} requests/second", total_requests, elapsed_secs, requests_per_second);
+           // println!("Requests: {}, Time: {:.2} seconds, Speed: {:.2} requests/second", total_requests, elapsed_secs, requests_per_second);
         }
     }
 }
@@ -67,10 +67,18 @@ fn display_speed(shared_data: Arc<SharedData>, start: Instant, stop_flag: Arc<At
 #[tokio::main]
 async fn main() {
     let banner = r#"
-Your ASCII Art Banner Here
+    _______                    _     _______                                           _                  
+    |_   __ \                  / |_  |_   __ \                                         / |_                
+      | |__) |  __   _   .--. `| |-'   | |__) |  .---.   .--. _  __   _   .---.  .--. `| |-'.---.  _ .--.  
+      |  __ /  [  | | | ( (`\] | |     |  __ /  / /__\\/ /'`\' ][  | | | / /__\\( (`\] | | / /__\\[ `/'`\] 
+     _| |  \ \_ | \_/ |, `'.'. | |,   _| |  \ \_| \__.,| \__/ |  | \_/ |,| \__., `'.'. | |,| \__., | |     
+    |____| |___|'.__.'_/[\__) )\__/  |____| |___|'.__.' \__.; |  '.__.'_/ '.__.'[\__) )\__/ '.__.'[___]    
+                                                            |__]                                           
+by bl4ckarch
+https://github.com/bl4ckarch.com
     "#; 
     println!("{}", banner);
-    let matches = App::new("HTTP Requester")
+    let matches = App::new("Rust Requester")
         .arg(Arg::with_name("input")
             .short('i')
             .long("input")
@@ -111,10 +119,10 @@ Your ASCII Art Banner Here
     let mut contents = String::new();
     file.read_to_string(&mut contents).expect("Unable to read file");
 
-    let url = "http://int-proxmoxmonitor.eisge.com/ws/hyperviseur/getVm?node=eh012";
-    let method = Method::GET; 
-    let headers = HeaderMap::new();
-    let body = ""; 
+    // Here you should parse the contents variable to extract the actual URL, method, headers, and body.
+    let method = Method::GET;  // Placeholder
+    let headers = HeaderMap::new();  // Placeholder
+    let body = "";  // Placeholder
 
     let shared_data = Arc::new(SharedData {
         request_count: AtomicUsize::new(0),
