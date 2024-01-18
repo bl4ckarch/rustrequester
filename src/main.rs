@@ -111,11 +111,10 @@ Your ASCII Art Banner Here
     let mut contents = String::new();
     file.read_to_string(&mut contents).expect("Unable to read file");
 
-    // Here you should parse the contents variable to extract the actual URL, method, headers, and body.
-    let url = url.to_string();  // Placeholder
-    let method = Method::GET;  // Placeholder
-    let headers = HeaderMap::new();  // Placeholder
-    let body = "";  // Placeholder
+    let url = "http://int-proxmoxmonitor.eisge.com/ws/hyperviseur/getVm?node=eh012";
+    let method = Method::GET; 
+    let headers = HeaderMap::new();
+    let body = ""; 
 
     let shared_data = Arc::new(SharedData {
         request_count: AtomicUsize::new(0),
