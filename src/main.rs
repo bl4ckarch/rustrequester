@@ -1,3 +1,5 @@
+//* this lines of codes are the documentation read the code and understand */
+
 use clap::{App, Arg};
 use reqwest::{Client, Method, header::{HeaderMap}};
 use std::{sync::{Arc, Mutex, atomic::{AtomicUsize, AtomicBool, Ordering}}, thread};
@@ -59,7 +61,7 @@ fn display_speed(shared_data: Arc<SharedData>, start: Instant, stop_flag: Arc<At
 
         if elapsed_secs > 0.0 {
             let requests_per_second = total_requests as f64 / elapsed_secs;
-           // println!("Requests: {}, Time: {:.2} seconds, Speed: {:.2} requests/second", total_requests, elapsed_secs, requests_per_second);
+           println!("Requests: {}, Time: {:.2} seconds, Speed: {:.2} requests/second", total_requests, elapsed_secs, requests_per_second);
         }
     }
 }
@@ -67,13 +69,13 @@ fn display_speed(shared_data: Arc<SharedData>, start: Instant, stop_flag: Arc<At
 #[tokio::main]
 async fn main() {
     let banner = r#"
-    _______                    _     _______                                           _                  
-    |_   __ \                  / |_  |_   __ \                                         / |_                
-      | |__) |  __   _   .--. `| |-'   | |__) |  .---.   .--. _  __   _   .---.  .--. `| |-'.---.  _ .--.  
-      |  __ /  [  | | | ( (`\] | |     |  __ /  / /__\\/ /'`\' ][  | | | / /__\\( (`\] | | / /__\\[ `/'`\] 
-     _| |  \ \_ | \_/ |, `'.'. | |,   _| |  \ \_| \__.,| \__/ |  | \_/ |,| \__., `'.'. | |,| \__., | |     
-    |____| |___|'.__.'_/[\__) )\__/  |____| |___|'.__.' \__.; |  '.__.'_/ '.__.'[\__) )\__/ '.__.'[___]    
-                                                            |__]                                           
+    ██████╗ ██╗   ██╗███████╗████████╗    ██████╗ ███████╗ ██████╗ ██╗   ██╗███████╗███████╗████████╗███████╗██████╗ 
+    ██╔══██╗██║   ██║██╔════╝╚══██╔══╝    ██╔══██╗██╔════╝██╔═══██╗██║   ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+    ██████╔╝██║   ██║███████╗   ██║       ██████╔╝█████╗  ██║   ██║██║   ██║█████╗  ███████╗   ██║   █████╗  ██████╔╝
+    ██╔══██╗██║   ██║╚════██║   ██║       ██╔══██╗██╔══╝  ██║▄▄ ██║██║   ██║██╔══╝  ╚════██║   ██║   ██╔══╝  ██╔══██╗
+    ██║  ██║╚██████╔╝███████║   ██║       ██║  ██║███████╗╚██████╔╝╚██████╔╝███████╗███████║   ██║   ███████╗██║  ██║
+    ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝       ╚═╝  ╚═╝╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+                                                                                                                       
 by bl4ckarch
 https://github.com/bl4ckarch.com
     "#; 
@@ -119,10 +121,10 @@ https://github.com/bl4ckarch.com
     let mut contents = String::new();
     file.read_to_string(&mut contents).expect("Unable to read file");
 
-    // Here you should parse the contents variable to extract the actual URL, method, headers, and body.
-    let method = Method::GET;  // Placeholder
-    let headers = HeaderMap::new();  // Placeholder
-    let body = "";  // Placeholder
+    
+    let method = Method::GET; 
+    let headers = HeaderMap::new();  
+    let body = ""; 
 
     let shared_data = Arc::new(SharedData {
         request_count: AtomicUsize::new(0),
@@ -177,10 +179,9 @@ https://github.com/bl4ckarch.com
         handle.join().unwrap();
     }
 
-    display_handle.join().unwrap(); // Ensure the display thread has finished before final output
+    display_handle.join().unwrap(); 
 
     let total_requests = shared_data.request_count.load(Ordering::SeqCst);
     let response_codes = shared_data.response_codes.lock().unwrap();
-   // println!("Total requests: {}", total_requests);
-    //println!("Response codes: {:?}", *response_codes);
+    
 }
