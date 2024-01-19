@@ -106,8 +106,8 @@ https://github.com/bl4ckarch.com
         .arg(Arg::with_name("url")
             .short('u')
             .long("url")
-            .value_name("URL_TO_TEST")
-            .help("URL to test")
+            .value_name("YOUR_URL_TO_TEST")
+            .help("Your URL to test")
             .takes_value(true)
             .required(true))
         .get_matches();
@@ -116,7 +116,7 @@ https://github.com/bl4ckarch.com
     let input_path = matches.value_of("input").unwrap();
     let num_threads: u128 = matches.value_of("threads").unwrap().parse().expect("Invalid number for threads");
     let requests_per_thread: u128 = num_requests / num_threads;
-    let mut remaining_requests = num_requests % num_threads;
+    let mut remaining_requests: u128 = num_requests % num_threads;
     
     let mut file = fs::File::open(input_path).expect("Unable to open file");
     let mut contents = String::new();
